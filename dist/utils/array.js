@@ -7,7 +7,7 @@ function flatten(arr, depth = Infinity) {
     if (depth < 1) {
         return arr.slice();
     }
-    return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(flatten(val, depth - 1)) : acc.concat(val), []);
+    return arr.reduce((acc, val) => (Array.isArray(val) ? acc.concat(flatten(val, depth - 1)) : acc.concat(val)), []);
 }
 exports.flatten = flatten;
 async function asyncFilter(array, callback) {
@@ -37,8 +37,7 @@ function arrayUnique(array) {
 }
 exports.arrayUnique = arrayUnique;
 function arrayUniqueExtended(array) {
-    return arrayUnique(array)
-        .map(item => {
+    return arrayUnique(array).map(item => {
         const times = array.filter(i => i === item).length;
         return {
             times,

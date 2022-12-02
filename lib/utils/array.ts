@@ -5,12 +5,12 @@ import { getByExpression } from '@david.uhlir/expression'
  * Flatten array to one dimensional array
  * @param arr1
  */
- export function flatten(arr: any[], depth: number = Infinity) {
+export function flatten(arr: any[], depth: number = Infinity) {
   if (depth < 1) {
-      return arr.slice();
+    return arr.slice()
   }
 
-  return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(flatten(val, depth - 1)) : acc.concat(val), []);
+  return arr.reduce((acc, val) => (Array.isArray(val) ? acc.concat(flatten(val, depth - 1)) : acc.concat(val)), [])
 }
 
 /**
@@ -58,14 +58,13 @@ export function arrayUnique<T>(array: T[]): T[] {
  * @param array
  */
 export function arrayUniqueExtended<T>(array: T[]): { times: number; item: T }[] {
-  return arrayUnique(array)
-    .map(item => {
-      const times = array.filter(i => i === item).length
-      return {
-        times,
-        item,
-      }
-    })
+  return arrayUnique(array).map(item => {
+    const times = array.filter(i => i === item).length
+    return {
+      times,
+      item,
+    }
+  })
 }
 
 /**

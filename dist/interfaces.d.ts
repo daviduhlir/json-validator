@@ -1,16 +1,8 @@
-export declare class ObjectId extends String {
-}
 export interface AccumulatedError {
     field: string;
     message: string;
     humanKeyName?: string;
 }
-export declare const JsonValidatorTransforms: {
-    toFloat: JsonValidatorTransformFunction<number>;
-    toInteger: JsonValidatorTransformFunction<number>;
-    toObjectId: JsonValidatorTransformFunction<ObjectId>;
-    toDate: JsonValidatorTransformFunction<Date>;
-};
 export declare enum JsonValidatorType {
     Any = "Any",
     Boolean = "Boolean",

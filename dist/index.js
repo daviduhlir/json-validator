@@ -13,4 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./interfaces"), exports);
 __exportStar(require("./errors"), exports);
 __exportStar(require("./JsonValidator"), exports);
+__exportStar(require("./transforms"), exports);
 //# sourceMappingURL=index.js.map

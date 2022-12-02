@@ -1,7 +1,3 @@
-import { isString } from './utils/typechecks'
-
-export class ObjectId extends String {}
-
 /**********************
  *
  * Error data
@@ -11,51 +7,6 @@ export interface AccumulatedError {
   field: string
   message: string
   humanKeyName?: string
-}
-
-/**********************
- *
- * Transform functions
- *
- **********************/
-
-export const JsonValidatorTransforms = {
-  /**
-   * Transform string to float number
-   */
-  toFloat: ((value: any): number => {
-    if (isString(value)) {
-      return parseFloat(value)
-    }
-    throw new Error(`Input of JsonValidatorTransforms.toFloat is not string`)
-  }) as JsonValidatorTransformFunction<number>,
-  /**
-   * Transform string to integer number
-   */
-  toInteger: ((value: any): number => {
-    if (isString(value)) {
-      return parseInt(value, 10)
-    }
-    throw new Error(`Input of JsonValidatorTransforms.toInteger is not string`)
-  }) as JsonValidatorTransformFunction<number>,
-  /**
-   * Transform string to ObjectId
-   */
-  toObjectId: ((value: any): ObjectId => {
-    if (isString(value)) {
-      return new ObjectId(value)
-    }
-    throw new Error(`Input of JsonValidatorTransforms.toObjectId is not string`)
-  }) as JsonValidatorTransformFunction<ObjectId>,
-  /**
-   * Transform string to Date
-   */
-  toDate: ((value: any): Date => {
-    if (isString(value)) {
-      return new Date(value)
-    }
-    throw new Error(`Input of JsonValidatorTransforms.toDate is not string`)
-  }) as JsonValidatorTransformFunction<Date>,
 }
 
 /**********************

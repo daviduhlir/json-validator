@@ -1,6 +1,22 @@
 import { isString, isUndefined, isBoolean, isObject, isNumber, isArray, isRegExp, isDate, isFunction } from './utils/typechecks'
 import { flatten, arrayDiff, findDuplicities } from './utils/array'
-import { AccumulatedError, JsonObjectFromSchema, JsonValidatorAdditionalProperties, JsonValidatorAnySchema, JsonValidatorArraySchema, JsonValidatorBooleanSchema, JsonValidatorEnumSchema, JsonValidatorNumberSchema, JsonValidatorObjectChildsSchema, JsonValidatorObjectSchema, JsonValidatorPasswordSchema, JsonValidatorRequired, JsonValidatorSchema, JsonValidatorStringSchema, JsonValidatorType } from './interfaces'
+import {
+  AccumulatedError,
+  JsonObjectFromSchema,
+  JsonValidatorAdditionalProperties,
+  JsonValidatorAnySchema,
+  JsonValidatorArraySchema,
+  JsonValidatorBooleanSchema,
+  JsonValidatorEnumSchema,
+  JsonValidatorNumberSchema,
+  JsonValidatorObjectChildsSchema,
+  JsonValidatorObjectSchema,
+  JsonValidatorPasswordSchema,
+  JsonValidatorRequired,
+  JsonValidatorSchema,
+  JsonValidatorStringSchema,
+  JsonValidatorType,
+} from './interfaces'
 import { JsonValidationError, JsonValidationFieldError } from './errors'
 
 /**********************************************

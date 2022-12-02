@@ -1,11 +1,11 @@
-import { AccumulatedError } from "./interfaces"
+import { AccumulatedError } from './interfaces'
 
 /**********************
  *
  * Errors
  *
  **********************/
- export class JsonValidationError extends Error {
+export class JsonValidationError extends Error {
   constructor(message: string) {
     super(message)
     const actualProto = new.target.prototype

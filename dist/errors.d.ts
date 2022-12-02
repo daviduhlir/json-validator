@@ -1,4 +1,4 @@
-import { AccumulatedError } from "./interfaces";
+import { AccumulatedError } from './interfaces';
 export declare class JsonValidationError extends Error {
     constructor(message: string);
 }
