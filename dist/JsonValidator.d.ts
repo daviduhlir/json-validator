@@ -1,5 +1,7 @@
-import { JsonObjectFromSchema, JsonValidatorAdditionalProperties, JsonValidatorAnySchema, JsonValidatorArraySchema, JsonValidatorBooleanSchema, JsonValidatorEnumSchema, JsonValidatorNumberSchema, JsonValidatorObjectChildsSchema, JsonValidatorObjectSchema, JsonValidatorPasswordSchema, JsonValidatorSchema, JsonValidatorStringSchema, JsonValidatorType } from './interfaces';
-export declare function required<T extends JsonValidatorSchema>(input: T): T;
+import { JsonObjectFromSchema, JsonValidatorAdditionalProperties, JsonValidatorAnySchema, JsonValidatorArraySchema, JsonValidatorBooleanSchema, JsonValidatorEnumSchema, JsonValidatorNumberSchema, JsonValidatorObjectChildsSchema, JsonValidatorObjectSchema, JsonValidatorPasswordSchema, JsonValidatorRequired, JsonValidatorSchema, JsonValidatorStringSchema, JsonValidatorType } from './interfaces';
+export declare function required<T extends JsonValidatorSchema, K extends {
+    required: JsonValidatorRequired.True;
+}>(input: T): T & K;
 export declare class JsonValidator {
     static objectValidator<T extends JsonValidatorObjectChildsSchema>(input: any, schema: T, additinalProperties?: JsonValidatorAdditionalProperties): JsonObjectFromSchema<T>;
     static validate(content: any, schema: JsonValidatorSchema, parentKey?: string, key?: string): any;

@@ -330,7 +330,7 @@ class JsonValidator {
                             ]);
                         }
                     }
-                    if (!typechecks_1.isUndefined(content[objKey])) {
+                    if (content.hasOwnProperty(objKey)) {
                         outObject[objKey] = JsonValidator.validate(content[objKey], schema.childs ? schema.childs[objKey] : schema.of, newParentKey, objKey);
                     }
                     else if (schema.childs && schema.childs[objKey].required === interfaces_1.JsonValidatorRequired.True) {

@@ -24,7 +24,7 @@ import { JsonValidationError, JsonValidationFieldError } from './errors'
  * Quick functions
  *
  **********************************************/
-export function required<T extends JsonValidatorSchema>(input: T): T {
+export function required<T extends JsonValidatorSchema, K extends { required: JsonValidatorRequired.True }>(input: T): T & K {
   return {
     ...(input as any),
     required: JsonValidatorRequired.True,
@@ -465,7 +465,7 @@ export class JsonValidator {
           }
 
           // validate content of property
-          if (!isUndefined(content[objKey])) {
+          if (content.hasOwnProperty(objKey)) {
             outObject[objKey] = JsonValidator.validate(content[objKey], schema.childs ? schema.childs[objKey] : schema.of, newParentKey, objKey)
           } else if (schema.childs && schema.childs[objKey].required === JsonValidatorRequired.True) {
             // was undefined, and is required
